@@ -12,6 +12,35 @@
 
 . Networks are crucial to connect materials in a local or a worldwide area. In order to deploy a network, some notions are required. Therefore, we'll be using Cisco CLI command line as an example (I recomand using cisco's materials or packet tracer).
 
+. Before starting the course, those general CLI commands might be helpful:
+
+(enable) Show the 50 last executed commands:
+```	
+terminal history size 50 
+``````
+
+(enable) Show the last commands:	
+```
+show history 
+```
+
+(enable) Number of lines in the current terminal screen:
+```	
+terminal length 100
+```
+
+(enable) Show only the Y found on X:
+(example : X running-configuration , Y interface)
+```	
+show X | include Y
+```
+
+(enable) Show the whole section in X that contains Y (doesn't work on the actual packet tracer):
+```	
+show X | section Y
+```
+
+<br>
 
 ## 1.1. Switch configuration
 ### `Description`
@@ -108,9 +137,10 @@ service password-encryption
 exec-timeout 1 13
 ````
 
+<br>
 
 ## 1.2. Memory management
-
+### `Description`
 . There are 2 types of configuration:
 -	Running configuration : 
     o	Saved on <b>RAM</b> (not permanent, disappear on reload). 
@@ -121,9 +151,39 @@ exec-timeout 1 13
 
 - If there’s no configuration yet, the device will enter the setup mode or load a blank configuration from the <b>flash memory</b>.
 
-- 
+- The last type of memories is the <b>ROM memory</b>. It contains the bootloader of the device.
 
 
+### `CLI commands`
+
+(user) Show the actual config:	
+```
+Show running-config
+``` 
+
+(user) Show the after reload config:
+```
+Show startup-config
+```
+
+(enable) Save the actual config permanently on the NVRAM:
+```
+copy running-config startup-config
+```
+
+(enable) Save the actual config permanently on the TFTP server:
+```
+copy running-config tftp
+```
+
+(enable) Write in the NVRAM memory:	
+```
+write 
+```
+Or
+```
+write memory
+```
 
 
 
