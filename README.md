@@ -6,12 +6,12 @@
     
 # 1. Basic networking notions
 
-. Networks are crucial to connect work and materials in a company but also people around the world. In order to deploy a network, some notions are required to be known and mastered : 
+. Networks are crucial to connect materials in a local or a worldwide area. In order to deploy a network, some notions are required. Therefore, we'll be using Cisco CLI command line as an example (I recomand using cisco's materials or packet tracer).
 
 
 ## 1.1. Switch
 ### `Description`
-. Switches are intelligent devices that connect many devices under the same network. It works on OSI layer 2 (link layer) using mac addresses. It forward, filter or flood (broadcast) <b>frames based on MAC table entries</b>.
+. Switches are intelligent devices that connect many machines under the same network. It works on OSI layer 2 (link layer) using mac addresses. It forward, filter or flood (broadcast) <b>frames based on MAC table entries</b>.
  . A switch have many full duplex ports (generally 24 ports) and allows various port speed.
 
 . We can: 
