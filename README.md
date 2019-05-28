@@ -5,7 +5,7 @@
 ## Table of Contents
   1. [Building a simple network](#1-Building-a-simple-network)   
     1.1. [Switch configuration](#11-Switch-configuration)    
-    1.2. [Device's memory management](#12-Device-s-memory-management)  
+    1.2. [Memory management](#12-memory-management)  
     
     
 # 1. Building a simple network
@@ -109,7 +109,7 @@ exec-timeout 1 13
 ````
 
 
-## 1.2. Device's memory management
+## 1.2. Memory management
 
 . There are 2 types of configuration:
 -	Running configuration : 
