@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/51119025/58493148-99e9c500-8172-11e9-8f64-2a95425e1feb.png" alt="cisco image">
+</p>
+
 ## Table of Contents
   1. [Basic networking notions](#1-basic-netwoking-notions)  
     1.1. [Switch](#11-switch)    
