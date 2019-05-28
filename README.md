@@ -3,9 +3,9 @@
 </p>
 
 ## Table of Contents
-  1. [Basic networking notions](#1-basic-netwoking-notions)  
-    1.1. [Switch](#11-switch)    
-    1.2. [Router](#12-router)  
+  1. [Building a simple network](#1-Building-a-simple-network)   
+    1.1. [Switch configuration](#11-Switch-configuration)    
+    1.2. [Device's memory management](#12-Device-s-memory-management)  
     
     
 # 1. Basic networking notions
@@ -13,7 +13,7 @@
 . Networks are crucial to connect materials in a local or a worldwide area. In order to deploy a network, some notions are required. Therefore, we'll be using Cisco CLI command line as an example (I recomand using cisco's materials or packet tracer).
 
 
-## 1.1. Switch
+## 1.1. Switch configuration
 ### `Description`
 . Switches are intelligent devices that connect many machines under the same network. It works on OSI layer 2 (link layer) using mac addresses. It forward, filter or flood (broadcast) <b>frames based on MAC table entries</b>.
  . A switch have many full duplex ports (generally 24 ports) and allows various port speed.
@@ -109,6 +109,19 @@ exec-timeout 1 13
 ````
 
 
+## 1.2. Device's memory management
+
+. There are 2 types of configuration:
+-	Running configuration : 
+    o	Saved on <b>RAM</b> (not permanent, disappear on reload). 
+    o	Reflects the current configuration.
+
+-	Startup configuration : 
+    o	Saved on <b>NVRAM</b> (permanently, reloads after a reboot).
+
+- If there’s no configuration yet, the device will enter the setup mode or load a blank configuration from the <b>flash memory</b>.
+
+- 
 
 
 
