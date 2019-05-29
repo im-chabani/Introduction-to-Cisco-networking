@@ -595,11 +595,35 @@ ip helper-address 172.16.1.100
 <p align=center>
 	<img src="https://user-images.githubusercontent.com/51119025/58558432-1dfa8600-8221-11e9-809e-f3ebfc843400.png" alt="NAT">
 <p>
-<br>(screenshot from : https://www.youtube.com/watch?v=qij5qpHcbBk)
+(screenshot from : https://www.youtube.com/watch?v=qij5qpHcbBk)
 <br>
 
 . Now we're going to see each type of NAT and its configuration.
 <br>
+### a. `PAT: Port Address Translation (overload)`
+
+. The most popular NAT is PAT, <b>a many to one address mapping</b>. It converts a private address + port number to a public address + port number. This is actually what ISP uses to provide us internet connexion to our houses.
+<br><br>. Let’s explain PAT with an example: 
+<br>
+<b>Phase 1:</b> sending from local to public (a website since it’s port 80):
+<br>
+- Source (Inside local): 192.168.0.1:8897   destination(Outside global): 55.66.77.88:80
+<br>
+- Source (Inside global): 11.22.33.44:8897   destination(Outside global): 55.66.77.88:80
+<br>
+- Router NAT table :<br>
+
+<table style="width:100%" align=center>
+  <tr>
+    <td>Inside</td>
+    <td>Outside</td> 
+  </tr>
+	
+  <tr>
+    <td>192.168.0.1:8897</td>
+    <td>11.22.33.44:8897</td> 
+  </tr>
+</table>
 
 <br>
 <br>
