@@ -634,6 +634,8 @@ ip helper-address 172.16.1.100
 - Since it’s working with port number, we’ll not only know which host need the data but also which application will use it.
 
 <br>
+<img src="https://user-images.githubusercontent.com/51119025/58562771-30c58880-822a-11e9-852b-efdb2034a412.png" alt="PAT">
+<br>
 <br>
 <br>
 <br>
