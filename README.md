@@ -196,6 +196,7 @@ write memory
 <br>
 
 # 2. Establishing Internet Connectivity
+
 ## 2.1. Understanding TCP/IP transport layer
 
 (on going chapter)
