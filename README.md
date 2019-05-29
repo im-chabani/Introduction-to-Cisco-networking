@@ -7,7 +7,15 @@
     1.1. [Switch configuration](#11-Switch-configuration)    
     1.2. [Memory management](#12-memory-management)  
     
+  2. [Establishing Internet Connectivity](#2-establishing-internet-connectivity) 
+    2.1. [Understanding TCP/IP transport layer](#21-understanding-tcp-ip-transport-layer)    
+    2.2. [Exploring the function of routing](#22-Exploring-the-function-of-routing) 
+    2.3. [Configuring static routing](#23-configuring-static-routing) 
+    2.4. [Managing traffic using ACLs](#24-managing-traffic-using-acls) 
+    2.5. [Establishing INTERNET connection](#25-Establishing-internet-connection) 
     
+    
+ <br>
 # 1. Building a simple network
 
 . Networks are crucial to connect materials in a local or a worldwide area. In order to deploy a network, some notions are required. Therefore, we'll be using Cisco CLI command line as an example (I recomand using cisco's materials or packet tracer).
@@ -151,7 +159,7 @@ exec-timeout 1 13
 
 - If there’s no configuration yet, the device will enter the setup mode or load a blank configuration from the <b>flash memory</b>.
 
-- The last type of memories is the <b>ROM memory</b>. It contains the bootloader of the device.
+- The last type of memories is the <b>ROM memory</b>. It stores the bootstrap program that is used to initialize the boot process.
 
 
 ### `CLI commands`
@@ -185,6 +193,14 @@ Or
 write memory
 ```
 
+<br>
+# 2. Establishing Internet Connectivity  
+## 2.1. Understanding TCP/IP transport layer 
+(on going)
+<br>
 
-
+## 2.2. Exploring the function of routing
+## 2.3. Configuring static routing 
+## 2.4. Managing traffic using ACLs
+## 2.5. Establishing INTERNET connection
 
