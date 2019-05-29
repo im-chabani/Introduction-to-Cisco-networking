@@ -605,6 +605,7 @@ ip helper-address 172.16.1.100
 <br>
 <br>
 <br>
+
 ***
 ### `Remark`
 . I am just sharing my actual ICND1 summary documentation that I had from youtube videos, official cisco documentation, courses and other sources. Hope it will be helpful for any future certification.
