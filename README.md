@@ -594,11 +594,9 @@ ip helper-address 172.16.1.100
 <br>. But in order to use them over and over again, they needed NAT to translate 1 public address to multiple private addresses (as shown in the following photo):
 <br>
 <p align=center>
-	<img src="https://user-images.githubusercontent.com/51119025/58558432-1dfa8600-8221-11e9-809e-f3ebfc843400.png" alt="NAT">
-<p>
-(screenshot from : https://www.youtube.com/watch?v=qij5qpHcbBk)
-<br>
-
+	<img src="https://user-images.githubusercontent.com/51119025/58573570-53fa3300-823e-11e9-881a-1fbf3666416a.png" alt="NAT">
+</p>
+<br><br>
 . Now we're going to see each type of NAT and its configuration.
 <br>
 ### a. `PAT: Port Address Translation (overload)`
