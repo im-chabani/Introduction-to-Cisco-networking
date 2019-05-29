@@ -16,6 +16,7 @@
     
     
  <br>
+ 
 # 1. Building a simple network
 
 . Networks are crucial to connect materials in a local or a worldwide area. In order to deploy a network, some notions are required. Therefore, we'll be using Cisco CLI command line as an example (I recomand using cisco's materials or packet tracer).
