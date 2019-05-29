@@ -645,3 +645,6 @@ ip helper-address 172.16.1.100
 ### `Remark`
 . I am just sharing my actual ICND1 summary documentation that I had from official cisco documentation, youtube videos, actual courses and other sources. Hope it will be helpful for any future certification.
 ***
+<br>
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
