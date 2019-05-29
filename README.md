@@ -307,18 +307,69 @@ show ip route
 ## 2.4. Managing traffic using ACLs
 
 ### `Global description`
-. ACL are rules (succession of statements) to filter the traffics. It acts like a firewall to the network.
-. ACL can be applied <b>in</b>bound (going in the router) or <b>out</b>bound (going out the router).
+. ACL are rules (succession of statements) to filter the traffics. It acts like a firewall to the network. They can be applied <b>in</b>bound (going in the router) or <b>out</b>bound (going out the router).
+<br>
 . The wildcard mask is calculated by: 
 -	Putting important bits to 0.
 -	Putting unimportant bits to 1.
 <br>
 <img src="https://user-images.githubusercontent.com/51119025/58551716-00252500-8211-11e9-9da3-c6785eba5481.png" alt="ACL">
 <br>
-. ACL are read and executed from the 1st to the last statement, so be careful how sorting them.
-. There’s always a <b>deny any</b> (implicit deny) at the end of an ACL. Which means, every <b>not</b> mentioned permit case will be denied.
+. ACL are read and executed from the 1st to the last statement, so be careful how sorting them! That's being said, there’s always a <b>deny any</b> (implicit deny) at the end of an ACL, which means in other words: every <b>not</b> mentioned permit case will be denied.
+<br>
 . The advantage of named ACL is that you can modify statements order by adding or removing them. By default, the range between every statement is 10. 
-.Note that **Only one ACL per protocol, per direction AND per interface is allowed**.
+<br>
+.Note that <b>Only one ACL per protocol, per direction AND per interface is allowed</b>.
+
+<br>
+
+### `Standard ACL`
+### a. `Description`
+
+. With standard ACL we can deny <b>source IP addresses</b> from crossing from a router to another.
+<br>
+. Standard ACL goes from “1 to 99”, then from “1300 to 1999”.
+<br>
+. Standard ACL are configured <b>closest to the destination</b> (closest router and closest interface. Which means, mostly outbound). Otherwise, if it is applied closer to the destination, it will block the source from reaching all the networks (not only the selected one).
+<br>
+
+### b. `CLI commands`
+
+(enable) show configured access-lists:	
+```
+show access-lists 
+```
+
+(config t) Putting our ACL statements. On the below ACL, all 192.168.2.X addresses are denied (sources addresses):
+```
+access-list 1 deny 192.168.2.0 0.0.0.255
+```
+
+(config t) Those two commands are equivalent: 
+```
+access-list 1 deny 192.168.2.101 0.0.0.0
+	
+access-list 1 deny host 192.168.2.101
+```
+
+(config t) Those two commands are equialent:
+```
+access-list permit 0.0.0.0 255.255.255.255
+	
+access-list 1 permit any
+```
+
+(config-if) Applying the ACL on the interface. Be careful, out means out the ROUTER.
+```
+interface fa 0/1
+ip access-group 1 out
+```
+
+(config-line) Configuring the interface on a LINE not interface, so don’t confuse "class" with “group”.
+```
+line vty 0 4
+ip access-class 1 out
+```
 
 <br>
 
