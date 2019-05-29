@@ -446,7 +446,7 @@ Protocols + port number: <br>
 <br>Source: the concerned by the block.
 <br>Destination: the receiver.
 <br>Compared-port-number: equal (eq), greater (gr), lower (lw), …
-<br>Port number: or protocol name(the port number thing is optional). ex: www or 80.
+<br>Port number: or protocol name(the port number thing is optional). ex: www or 80:
 ``` 		
 access-list 100 action protocol source wildcard-source destination wildcard-destination compared-port-number port-number
 
@@ -454,26 +454,125 @@ example
 access-list 100 deny tcp 10.10.10.0 0.0.0.255 192.168.1.0 0.0.0.255 eq www
 ```
 
-(config t) We can use host instead of writing 0.0.0.0
+(config t) We can use host instead of writing 0.0.0.0:
 ```
 access-list 100 deny ip host 10.10.10.200 host 192.168.1.1
 ```
 
-(config t) Permit ip from any source to any destination.
+(config t) Permit ip from any source to any destination:
 ```		
 access-list 100 permit ip any any
 ```
 
-(config t) We permitted only the port 80 (http) which means, we’ll be able to reach the website but we can’t ping the host.
+(config t) We permitted only the port 80 (http) which means, we’ll be able to reach the website but we can’t ping the host:
 ```		
 access-list 100 permit tcp 192.168.1.0 0.0.0.255 host 10.10.10.200 eq 80
 ```
 
-(config t) Exactly the same thing as standard named ACL.
+(config t) Exactly the same thing as standard named ACL:
 ```		
 ip access-list extended nameACL
 ```
 
+### !`Note`
+. When deleting an ACL, you have to delete the interface configuration too. Example:
+```
+R0 # show access-lists
+R0 (config) # no ip standard access-list 1
+R0 (config-if) # no ip access-group 1 out
+```
 <br>
 
 ## 2.5. Establishing INTERNET connection
+. By enabling internet connectivity, we’re talking about DHCP and NAT.
+
+<br>
+
+### `What is DHCP (Dynamic Host Configuration Protocol)?`
+
+. DHCP is a client server model. The client is a host that requests an IP address and configuration from a DHCP server (or a router). 
+<br>. DHCP IP address allocation mechanisms:
+-	<b>Automatic allocation:</b> a permanent IP address is assigned to a client.
+-	<b>Dynamic allocation  :</b> A client is assigned an IP address for a limited time (refreshable).
+-	<b>Manual allocation   :</b> A client is assigned an IP address by the network administrator.
+<br>. Note if DHCP fails, APIPA (Automatic Private IP Addressing) will get the relay to ensure a local network connexion only. Apipa range from 169.254.0.1 to 169.254.255.254.
+
+
+<br>
+
+### `CLI commands: DHCP router`
+
+(config t) First of all, configure the concerned interface to be the default route:
+```
+interface gig 0/0/0
+ip add 192.168.1.254
+no sh
+```
+Now we shall begin. <br>
+(config t) Enable dhcp on the router:
+```
+service dhcp 
+```
+
+(config t) creates a pool of addresses named namepool:
+```
+ip dhcp pool namepool
+```
+
+(dhcp-config) the pool of addresses will be between 192.168.1.1 to .254:
+```		
+network 192.168.1.0 255.255.255.0
+```
+
+(dhcp-config) default gateway that should be set on pcs:
+```		
+default-router 192.168.1.254
+```
+
+(dhcp-config) giving the address of the DNS server (optional):
+```
+dns-server 192.168.1.1
+```
+
+(dhcp-config) giving the domain name (optional):	
+```
+domain-name doth.com
+```
+
+(dhcp-config) Days, Hours, Minutes. Lease time is how long the address will remain the same before it gets refreshed.
+```		
+lease 9 0 0
+```
+
+(config t) Exclude DNS and gateway addresses from the pool:		
+```
+ip dhcp exclude-address 192.168.1.254
+ip dhcp exclude-address 192.168.1.1
+```
+
+(enable) Shows connected DHCP devices to the router:
+```		
+show ip dhcp binding
+```
+
+(enable) Verify information about configured DHCP address pools:
+ ```		
+show ip dhcp pool 
+```
+
+(enable) Display the address conflicts that are found by a DHCP server:	
+```
+show ip dhcp conflict
+```
+
+### `CLI commands: DHCP relay agent`
+<p align=center>
+<img src="https://user-images.githubusercontent.com/51119025/58556386-39af5d80-821c-11e9-91c2-3d3628cac425.png" alt="image">
+</p>
+<br>
+
+(config-if) We’ll just have to tell the router where he should get the information after enabling DHCP on the server:
+```
+ip helper-address 172.16.1.100
+```
+
