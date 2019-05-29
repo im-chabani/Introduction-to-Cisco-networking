@@ -584,7 +584,7 @@ ip helper-address 172.16.1.100
 -	From 10.0.0.0      to 10.255.255.255
 -	From 127.16.0.0   to 172.31.255.255
 -	From 192.168.0.0 to 192.168.255.255
-<br>. We also distinguish 3 types of NAT addresses:
+<br><br>. We also distinguish 3 types of NAT addresses:
 -	<b>Inside local  :</b> The host private address inside the network.
 -	<b>Inside global :</b> Assigned by an ISP, it’s the address that allows the customer outside access (internet).
 -	<b>Outside global:</b> websites, services… Any other hosts outside the network.
