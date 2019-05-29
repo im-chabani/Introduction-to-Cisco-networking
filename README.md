@@ -395,7 +395,7 @@ permit 192.168.2.0 0.0.0.255
 no 10
 ```
 
-(config t) re attribute the sequence numbers to the statements starting from 10 and incrementing by 20:
+(config t) (doesn't work on packet tracer) re attribute the sequence numbers to the statements starting from 10 and incrementing by 20:
 ```
 ip access-list resequence nameACL 10 20
 ```
@@ -413,6 +413,66 @@ to this:
 30 permit …
 50 permit …		
 ```
+<br>
+
+### `Extended ACL`
+### a. `Description`
+. With extended ACL we can:
+-	Deny/permit a protocol from going out the source IP or reaching a destination IP. It also allow (optionally) precising the ports number.
+<br>
+. Extended ACL goes from “100 to 199”, then from “2000 to 2699”.
+<br>
+. Extended ACL are configured closest to the Source, so they are mostly inbound.
+<br>
+
+Protocols + port number: <br>
+	<b>IP	:</b> Any Internet Protocol.<br>
+	<b>TCP	:</b> Transmission Control Protocol. Connected transport protocol (3 men handshake). Concerned protocols: FTP(21), SSH(22), Telnet(23), http(80), https(443), DNS(53).<br>
+	<b>UDP	:</b> User Datagram Protocol. Disconnected transport protocol (don’t verify the connection and the arrival of the data). Concerned protocols: DNS(53), TFTP(69), SNMP(161).<br>
+	<b>ICMP	:</b> Internet Control Message Protocol.<br>
+	<b>AHP	:</b> Authentication Header Protocol. Part of the IPsec, it provides authentication (known sender) and integrity (whole data).<br>
+	<b>ESP	:</b> Encapsulation Security Payload. (Payload is the data) part of the IPsec, it provides authentication, integrity and confidentiality (encryption).<br>
+	<b>OSPF	:</b> Open Shortest Path First. Is an IGP , its metric is the shortest path with the best transmission debit.<br>
+	<b>EIGRP:</b> Enhanced Interior Gateway Routing Protocol. Is a Cisco’s IGP.<br>
+	<b>GRE	:</b> Generic Routing Encapsulation. Cisco’s protocol that encapsulate any package from layer 3 in order to secure networks. Example: from a private address encapsulated to a public address. Or from IPv4 to IPv6. <br>
+
+<br>
+### b. `CLI commands`
+
+(config t) 
+Action: deny / permit / remark 
+Protocols: ahp, eigrp, esp, gre icmp, ip, ospf, tcp, udp.
+Source: the concerned by the block.
+Destination: the receiver.
+Compared-port-number: equal (eq), greater (gr), lower (lw), …
+Port number: or protocol name(the port number thing is optional). ex: www or 80.
+``` 		
+access-list 100 action protocol source wildcard-source destination wildcard-destination compared-port-number port-number
+
+example
+access-list 100 deny tcp 10.10.10.0 0.0.0.255 192.168.1.0 0.0.0.255 eq www
+```
+
+(config t) We can use host instead of writing 0.0.0.0
+```
+access-list 100 deny ip host 10.10.10.200 host 192.168.1.1
+```
+
+(config t) Permit ip from any source to any destination.
+```		
+access-list 100 permit ip any any
+```
+
+(config t) We permitted only the port 80 (http) which means, we’ll be able to reach the website but we can’t ping the host.
+```		
+access-list 100 permit tcp 192.168.1.0 0.0.0.255 host 10.10.10.200 eq 80
+```
+
+(config t) Exactly the same thing as standard named ACL.
+```		
+ip access-list extended nameACL
+```
+
 <br>
 
 ## 2.5. Establishing INTERNET connection
