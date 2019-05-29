@@ -705,9 +705,33 @@ ip helper-address 172.16.1.100
 . <b>Phase 2:</b> response from the website:
 - <b>Source (Outside global):</b> 55.66.77.88:80 destination (inside global): 11.22.33.52:8897
 - Since the router has a match in its NAT table, the data will continue its way.
-
+<br>
 
 - <b>Source (Outside global):</b> 55.66.77.88:80 destination (inside local): 192.168.0.1:8897
+
+<br><br>
+
+### `CLI commands: Troubleshooting NAT`
+
+(enable) verify if addressing is ok.		
+``` 
+show ip nat translations
+```
+
+(enable) Show the translations that already happened.
+```		
+show ip nat statistics
+```
+(enable) Display detailed dynamic data and events. <b>ALWAYS turn off the debug once you’re done</b>. It consumes a lot of resources.
+```
+debug ip nat
+no debug all (or undebug all)
+```
+(enable) In case it isn’t working, verify your addressing and ACL.		
+```
+show access-list
+show ip route
+```
 
 <br>
 <br>
