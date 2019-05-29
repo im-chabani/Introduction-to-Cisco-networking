@@ -198,9 +198,109 @@ write memory
 # 2. Establishing Internet Connectivity
 ## 2.1. Understanding TCP/IP transport layer
 
-(on going)
+(on going chapter)
 <br>
+
 ## 2.2. Exploring the function of routing
+
+### `Description`
+. Routers are required to reach hosts that are not in the local network. They use routing table to route between networks.
+<br>
+
+### `CLI commands`
+
+(enable) Display known ip routes:
+```
+show ip route 
+```
+
+(enable) Show interfaces states:	
+```
+Show ip interface brief
+```
+
+(enable) Show interfaces details:	
+```
+Show interfaces
+```
+
+(enable) CDP: Cisco Discovering Neighbors. Show characteristics of directly connected devices:
+```
+show cdp neighbors
+```
+
+(enable) same thing with more depth:
+```
+show cdp neighbors detail
+```
+
+(config-if) Add a descriptive text to an interface:	
+```
+interface serial 0/0/0
+description Link to isp
+```
+<br>
+
 ## 2.3. Configuring static routing
+
+### `Comparison between static and dynamic routes`
+
+. Static routes: 
+-	A network administrator manually enters static routes into the router.
+-	A network <b>physical changes</b> requires a manual update to the route.
+-	Routing behavior can be precisely controlled.
+-	We use static routes when:
+    o	It’s a small network.
+    o	It’s a hub-and-spoke network topology (star topology).
+    o	When you want to create a quick ad-hoc route.
+
+. Dynamic routes:
+-	Adjusts dynamically routes when the topology or the traffic changes.
+-	Routers learn and maintain routes to the remote destinations by exchanging routing updates.
+-	Routers discover new networks by sharing routing table information.
+-	We use dynamic routes when :
+    o	It’s a large network.
+    o	The network is expected to scale.
+<br>
+
+### `Configure a static route`
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/51119025/58522379-65045f00-81c0-11e9-932e-5a4782103089.png" alt="cisco image">
+</p>
+<br>
+
+. Static route is unidirectional. Which means, we have to configure it to and from a stub (destination) network to allow communication to occur.
+. Steps to configure a static route:
+-	Define a path to an IP destination network (172.16.1.0 255.255.255.0).
+-	Use the IP address of the <b>next-hop router interface</b> (172.16.2.1). OR (less recommanded), use the outbound interface of the <b>local router</b> (serial 0/0/0).
+
+Note :You have to specify routes to <b>all networks</b> that you have to attend on each router.
+-	To expand the network outside the local area (eg: internet), We just have to make a default all 0 route (0.0.0.0) that literlly express : all possible routes. 
+<br>
+
+### `CLI commands`
+
+R1 (config) Where we want to go + mask + from where should we enter on R2:
+```
+ip route 172.16.1.0 255.255.255.0 172.16.2.1
+```
+
+R1 (config) Gives a default route through the serial port 0/0/1 (concerned router). This method is not recommended:
+```
+ip route 0.0.0.0  0.0.0.0 serial 0/0/1
+```
+
+R1 (config) Gives a default route through the next hop router for any address (0.0.0.0 mask 0.0.0.0). Ex: it’s used for internet:
+``` 	
+ip route 0.0.0.0  0.0.0.0 172.16.2.1
+```
+
+(config) Show our actual static routes:	
+```
+show ip route
+```
+
+<br>
+
 ## 2.4. Managing traffic using ACLs
 ## 2.5. Establishing INTERNET connection
