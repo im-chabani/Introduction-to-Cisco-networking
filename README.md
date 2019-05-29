@@ -268,7 +268,7 @@ description Link to isp
 
 ### `Configure a static route`
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/51119025/58522379-65045f00-81c0-11e9-932e-5a4782103089.png" alt="cisco image">
+  <img src="https://user-images.githubusercontent.com/51119025/58571639-74c08980-823a-11e9-8978-2eba02360b3a.png" alt="cisco image">
 </p>
 <br>
 
@@ -314,7 +314,7 @@ show ip route
 -	Putting important bits to 0.
 -	Putting unimportant bits to 1.
 <br>
-<img src="https://user-images.githubusercontent.com/51119025/58551716-00252500-8211-11e9-9da3-c6785eba5481.png" alt="ACL">
+<img src="https://user-images.githubusercontent.com/51119025/58571705-9588df00-823a-11e9-8bff-8dd94ea8c356.png" alt="ACL">
 <br>
 . ACL are read and executed from the 1st to the last statement, so be careful how sorting them! That's being said, there’s always a <b>deny any</b> (implicit deny) at the end of an ACL, which means in other words: every <b>not</b> mentioned permit case will be denied.
 <br>
@@ -568,7 +568,7 @@ show ip dhcp conflict
 
 ### b. `CLI commands: DHCP relay agent`
 <p align=center>
-<img src="https://user-images.githubusercontent.com/51119025/58556386-39af5d80-821c-11e9-91c2-3d3628cac425.png" alt="image">
+<img src="https://user-images.githubusercontent.com/51119025/58572217-8fdfc900-823b-11e9-93de-22cab415eb24.png" alt="image">
 </p>
 <br>
 
