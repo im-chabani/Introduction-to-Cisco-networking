@@ -194,13 +194,13 @@ write memory
 ```
 
 <br>
-# 2. Establishing Internet Connectivity  
-## 2.1. Understanding TCP/IP transport layer 
+# 2. Establishing Internet Connectivity     
+## 2.1. Understanding TCP/IP transport layer     
 (on going)
 <br>
 
-## 2.2. Exploring the function of routing
-## 2.3. Configuring static routing 
-## 2.4. Managing traffic using ACLs
-## 2.5. Establishing INTERNET connection
+## 2.2. Exploring the function of routing     
+## 2.3. Configuring static routing      
+## 2.4. Managing traffic using ACLs      
+## 2.5. Establishing INTERNET connection     
 
