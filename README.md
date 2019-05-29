@@ -603,8 +603,8 @@ ip helper-address 172.16.1.100
 ### a. `PAT: Port Address Translation (overload)`
 
 . The most popular NAT is PAT, <b>a many to one address mapping</b>. It converts a private address + port number to a public address + port number. This is actually what ISP uses to provide us internet connexion to our houses.
-<br><br>. Let’s explain PAT with an example: 
-<br>
+<br>. Let’s explain PAT with an example: 
+<br><br>
 <b>Phase 1:</b> sending from local to public (a website since it’s port 80):
 
 - Source (Inside local): 192.168.0.1:8897   destination(Outside global): 55.66.77.88:80
@@ -623,6 +623,15 @@ ip helper-address 172.16.1.100
     <td>11.22.33.44:8897</td> 
   </tr>
 </table>
+
+<br><br>
+<b>Phase 2:</b> response from the website:
+- Source (Outside global): 55.66.77.88:80 destination(inside global): 11.22.33.44:8897
+- Since the router has a match in its NAT table, the data will continue its way.
+<br>
+
+- Source (Outside global): 55.66.77.88:80 destination(inside local): 192.168.0.1:8897
+- Since it’s working with port number, we’ll not only know which host need the data but also which application will use it.
 
 <br>
 <br>
