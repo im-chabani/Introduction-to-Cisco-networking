@@ -7,12 +7,12 @@
     1.1. [Switch configuration](#11-Switch-configuration)    
     1.2. [Memory management](#12-memory-management)  
     
-  2. [Establishing Internet Connectivity](#2-establishing-internet-connectivity) 
-    2.1. [Understanding TCP/IP transport layer](#21-understanding-tcp-ip-transport-layer)    
-    2.2. [Exploring the function of routing](#22-Exploring-the-function-of-routing) 
-    2.3. [Configuring static routing](#23-configuring-static-routing) 
-    2.4. [Managing traffic using ACLs](#24-managing-traffic-using-acls) 
-    2.5. [Establishing INTERNET connection](#25-Establishing-internet-connection) 
+  2. [Establishing Internet Connectivity](#2-establishing-internet-connectivity)      
+    2.1. [Understanding TCP/IP transport layer](#21-understanding-tcp-ip-transport-layer)          
+    2.2. [Exploring the function of routing](#22-Exploring-the-function-of-routing)     
+    2.3. [Configuring static routing](#23-configuring-static-routing)      
+    2.4. [Managing traffic using ACLs](#24-managing-traffic-using-acls)      
+    2.5. [Establishing INTERNET connection](#25-Establishing-internet-connection)      
     
     
  <br>
