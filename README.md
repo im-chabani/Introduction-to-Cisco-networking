@@ -6,9 +6,10 @@
   1. [Building a simple network](#1-Building-a-simple-network)   
     1.1. [Switch configuration](#11-Switch-configuration)    
     1.2. [Memory management](#12-memory-management)  
+    1.3. [Understanding TCP/IP](#13-Understanding-TCP-IP) (on going chapter)
     
   2. [Establishing Internet Connectivity](#2-establishing-internet-connectivity)      
-    2.1. [Understanding TCP/IP transport layer](#21-understanding-tcp-ip-transport-layer)          
+    2.1. [Understanding TCP/IP transport layer](#21-understanding-tcp-ip-transport-layer) (on going chapter)        
     2.2. [Exploring the function of routing](#22-Exploring-the-function-of-routing)     
     2.3. [Configuring static routing](#23-configuring-static-routing)      
     2.4. [Managing traffic using ACLs](#24-managing-traffic-using-acls)      
@@ -741,7 +742,11 @@ show ip route
 
 ***
 ### `Remark`
-. I am just sharing my actual ICND1 summary documentation that I had from official cisco documentation, youtube videos, actual courses and other sources. Hope it will be helpful for any future certification.
+. This is an introduction to networking main concepts. We'll approach more advanced concepts (as port security, OSPF, Vlans, ...) on the next topics.
+<br>
+. I have to clarify this is my actual summary networking documentation in a simplistic way that I wrote from what I've read on official cisco documentation (100-105 and 200-105. I highly recommand reading them if you're preparing for the certification). Hope it will be any helpful :).
+<br>
+more is to come :D !
 ***
 <br>
 
