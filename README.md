@@ -609,10 +609,11 @@ ip helper-address 172.16.1.100
 <br>
 - Source (Inside local): 192.168.0.1:8897   destination(Outside global): 55.66.77.88:80
 <br>
+
 - Source (Inside global): 11.22.33.44:8897   destination(Outside global): 55.66.77.88:80
 <br>
-- Router NAT table :<br>
 
+- Router NAT table :
 <table style="width:100%" align=center>
   <tr>
     <td>Inside</td>
