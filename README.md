@@ -305,4 +305,21 @@ show ip route
 <br>
 
 ## 2.4. Managing traffic using ACLs
+
+### `Global description`
+. ACL are rules (succession of statements) to filter the traffics. It acts like a firewall to the network.
+. ACL can be applied <b>in</b>bound (going in the router) or <b>out</b>bound (going out the router).
+. The wildcard mask is calculated by: 
+-	Putting important bits to 0.
+-	Putting unimportant bits to 1.
+<br>
+<img src="https://user-images.githubusercontent.com/51119025/58551716-00252500-8211-11e9-9da3-c6785eba5481.png" alt="ACL">
+<br>
+. ACL are read and executed from the 1st to the last statement, so be careful how sorting them.
+. There’s always a <b>deny any</b> (implicit deny) at the end of an ACL. Which means, every <b>not</b> mentioned permit case will be denied.
+. The advantage of named ACL is that you can modify statements order by adding or removing them. By default, the range between every statement is 10. 
+.Note that **Only one ACL per protocol, per direction AND per interface is allowed**.
+
+<br>
+
 ## 2.5. Establishing INTERNET connection
