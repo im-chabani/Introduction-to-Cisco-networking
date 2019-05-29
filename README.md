@@ -437,6 +437,7 @@ Protocols + port number: <br>
 	<b>GRE	:</b> Generic Routing Encapsulation. Cisco’s protocol that encapsulate any package from layer 3 in order to secure networks. Example: from a private address encapsulated to a public address. Or from IPv4 to IPv6. <br>
 
 <br>
+
 ### b. `CLI commands`
 
 (config t) 
