@@ -594,8 +594,8 @@ ip helper-address 172.16.1.100
 <br>
 <p align=center>
 	<img src="https://user-images.githubusercontent.com/51119025/58558432-1dfa8600-8221-11e9-809e-f3ebfc843400.png" alt="NAT">
-	<br>(screenshot from : https://www.youtube.com/watch?v=qij5qpHcbBk)
 <p>
+<br>(screenshot from : https://www.youtube.com/watch?v=qij5qpHcbBk)
 <br>
 
 . Now we're going to see each type of NAT and its configuration.
