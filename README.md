@@ -638,7 +638,7 @@ ip helper-address 172.16.1.100
 <img src="https://user-images.githubusercontent.com/51119025/58562771-30c58880-822a-11e9-852b-efdb2034a412.png" alt="PAT">
 <br>
 
-### a. `Dynamic nat`
+### b. `Dynamic nat`
 
 . It’s a <b>many to many address mapping</b>, The way Dynamic NAT works is by assigning each private IP to a public IP from a <b>manually created pool of available public addresses</b>, which means, buy each address separately from the ISP. 
 <br>
@@ -677,6 +677,37 @@ ip helper-address 172.16.1.100
 
 <br>
 
+### b. `Static nat`
+
+. Static NAT is a <b>one to one mapping addresses</b>. It means you manually assign each private IP address + port number to a public IP address + port number. Pretty useful when running web server or mail server for example.
+<br>. Ye ye, same example again: 
+<br><br>
+. <b>Phase 1:</b> sending from local to public (a website since it’s port 80):
+- Router NAT table :
+<table style="width:100%" align=center>
+  <tr>
+    <td>Inside</td>
+    <td>Outside</td> 
+  </tr>
+	
+  <tr>
+    <td>192.168.0.1:8897</td>
+    <td>11.22.33.44:80</td> 
+  </tr>
+</table>
+
+<br>
+
+- <b>Source (Inside local) :</b> 192.168.0.1:8897   destination (Outside global): 55.66.77.88:80
+- <b>Source (Inside global):</b> 11.22.33.44:8897   destination (Outside global): 55.66.77.88:80. It swaps directly if it finds a match at the destination.
+<br><br>
+
+. <b>Phase 2:</b> response from the website:
+- <b>Source (Outside global):</b> 55.66.77.88:80 destination (inside global): 11.22.33.52:8897
+- Since the router has a match in its NAT table, the data will continue its way.
+
+
+- <b>Source (Outside global):</b> 55.66.77.88:80 destination (inside local): 192.168.0.1:8897
 
 <br>
 <br>
