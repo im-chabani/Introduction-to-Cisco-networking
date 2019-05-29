@@ -440,12 +440,12 @@ Protocols + port number: <br>
 ### b. `CLI commands`
 
 (config t) 
-Action: deny / permit / remark 
-Protocols: ahp, eigrp, esp, gre icmp, ip, ospf, tcp, udp.
-Source: the concerned by the block.
-Destination: the receiver.
-Compared-port-number: equal (eq), greater (gr), lower (lw), …
-Port number: or protocol name(the port number thing is optional). ex: www or 80.
+<br>Action: deny / permit / remark
+<br>Protocols: ahp, eigrp, esp, gre icmp, ip, ospf, tcp, udp.
+<br>Source: the concerned by the block.
+<br>Destination: the receiver.
+<br>Compared-port-number: equal (eq), greater (gr), lower (lw), …
+<br>Port number: or protocol name(the port number thing is optional). ex: www or 80.
 ``` 		
 access-list 100 action protocol source wildcard-source destination wildcard-destination compared-port-number port-number
 
