@@ -744,7 +744,11 @@ show ip route
 ### `Remark`
 . This is an introduction to networking main concepts. We'll approach more advanced concepts (as port security, OSPF, Vlans, ...) on the next topics.
 <br>
-. I have to clarify this is my actual summary networking documentation in a simplistic way that I wrote from what I've read on official cisco documentation (100-105 and 200-105. I highly recommand reading them if you're preparing for the certification). Hope it will be any helpful :).
+. I have to clarify I wrote this summary in a simplistic way from what I've read on the official cisco documentation (100-105 and 200-105) additioannly to other courses, books and videos.
+<br>
+. I highly recommand reading official Cisco documentation and do additional labs if you're preparing for the certification.
+<br>
+. Please do not hesitate asking your questions. Hope it will be any helpful :).
 <br>
 more is to come :D !
 ***
