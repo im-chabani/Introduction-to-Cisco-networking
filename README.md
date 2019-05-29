@@ -333,7 +333,7 @@ show ip route
 . Standard ACL are configured <b>closest to the destination</b> (closest router and closest interface. Which means, mostly outbound). Otherwise, if it is applied closer to the destination, it will block the source from reaching all the networks (not only the selected one).
 <br>
 
-### b. `CLI commands`
+### b.1 `CLI commands (std ACL)`
 
 (enable) show configured access-lists:	
 ```
@@ -370,7 +370,49 @@ ip access-group 1 out
 line vty 0 4
 ip access-class 1 out
 ```
+<br>
 
+### b.2 `CLI commands (std named ACL)`
+
+(config t) create a named acl OR enter modification mode to the existing named ACL: 
+``` 		
+ip access-list standard nameACL
+```
+
+(config-std-nacl) We add statements only when we enter the named ACL config mode:
+```		
+deny 192.168.2.101 0.0.0.0
+permit 192.168.2.0 0.0.0.255
+```
+
+(config-std-nacl) Add a statement between existing statements by adding the number of is line:
+```		
+9 permit host 192.168.2.3 
+```
+
+(config-std-nacl) remove the statement number 10:
+```		
+no 10
+```
+
+(config t) re attribute the sequence numbers to the statements starting from 10 and incrementing by 20:
+```
+ip access-list resequence nameACL 10 20
+```
+Example :
+```
+It goes from this :
+
+9 deny …
+10 permit …
+20 permit …
+
+to this: 
+
+10 deny …
+30 permit …
+50 permit …		
+```
 <br>
 
 ## 2.5. Establishing INTERNET connection
