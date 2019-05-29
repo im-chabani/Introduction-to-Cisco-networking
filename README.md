@@ -607,9 +607,9 @@ ip helper-address 172.16.1.100
 <br><br>
 <b>Phase 1:</b> sending from local to public (a website since it’s port 80):
 
-- Source (Inside local): 192.168.0.1:8897   destination(Outside global): 55.66.77.88:80
+- <b>Source (Inside local) :</b> 192.168.0.1:8897   destination(Outside global): 55.66.77.88:80
 
-- Source (Inside global): 11.22.33.44:8897   destination(Outside global): 55.66.77.88:80
+- <b>Source (Inside global):</b> 11.22.33.44:8897   destination(Outside global): 55.66.77.88:80
 
 - Router NAT table :
 <table style="width:100%" align=center>
@@ -626,15 +626,58 @@ ip helper-address 172.16.1.100
 
 <br><br>
 <b>Phase 2:</b> response from the website:
-- Source (Outside global): 55.66.77.88:80 destination(inside global): 11.22.33.44:8897
+- <b>Source (Outside global):</b> 55.66.77.88:80 destination(inside global): 11.22.33.44:8897
 - Since the router has a match in its NAT table, the data will continue its way.
 <br>
 
-- Source (Outside global): 55.66.77.88:80 destination(inside local): 192.168.0.1:8897
+- <b>Source (Outside global):</b> 55.66.77.88:80 destination(inside local): 192.168.0.1:8897
 - Since it’s working with port number, we’ll not only know which host need the data but also which application will use it.
 
 <br>
+
 <img src="https://user-images.githubusercontent.com/51119025/58562771-30c58880-822a-11e9-852b-efdb2034a412.png" alt="PAT">
+<br>
+
+### a. `Dynamic nat`
+
+. It’s a <b>many to many address mapping</b>, The way Dynamic NAT works is by assigning each private IP to a public IP from a <b>manually created pool of available public addresses</b>, which means, buy each address separately from the ISP. 
+<br>
+. You can use this to merge two networks with the same subnet together (as they are 1 subnet for example). In other words, you would configure the connecting routers to make the subnets appear to be different to what they actually are.
+<br>. Let’s explain it with the same example: 
+<br><br>
+
+<img src="https://user-images.githubusercontent.com/51119025/58564068-90bd2e80-822c-11e9-8499-15200a19c85a.png" alt="bucket">
+<br>
+
+. <b>Phase 1:</b> sending from local to public (a website since it’s port 80):
+- <b>Source (Inside local) :</b> 192.168.0.1:8897   destination (Outside global): 55.66.77.88:80
+- <b>Source (Inside global):</b> 11.22.33.52:8897   destination (Outside global): 55.66.77.88:80. The router swap the inside local with the first available outside local address from the pool.
+- Router NAT table :
+<table style="width:100%" align=center>
+  <tr>
+    <td>Inside</td>
+    <td>Outside</td> 
+  </tr>
+	
+  <tr>
+    <td>192.168.0.1</td>
+    <td>11.22.33.52</td> 
+  </tr>
+</table>
+
+<br><br>
+<b>Phase 2:</b> response from the website:
+- <b>Source (Outside global):</b> 55.66.77.88:80 destination (inside global): 11.22.33.52:8897
+- Since the router has a match in its NAT table, the data will continue its way.
+<br><br>
+- <b>Source (Outside global):</b> 55.66.77.88:80 destination (inside local): 192.168.0.1:8897
+- After it's done, the public address (outside global 11.22.33.52) will return to the NAT pool of addresses, ready to be used again.
+
+<img src="https://user-images.githubusercontent.com/51119025/58564574-7899df00-822d-11e9-9409-2b278a856aa3.png" alt="Dynamic-nat">
+
+<br>
+
+
 <br>
 <br>
 <br>
