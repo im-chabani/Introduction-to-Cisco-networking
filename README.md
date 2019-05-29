@@ -488,7 +488,7 @@ R0 (config-if) # no ip access-group 1 out
 
 <br>
 
-### `What is DHCP (Dynamic Host Configuration Protocol)?`
+### 2.5.1 `What is DHCP (Dynamic Host Configuration Protocol)?`
 
 . DHCP is a client server model. The client is a host that requests an IP address and configuration from a DHCP server (or a router). 
 <br>. DHCP IP address allocation mechanisms:
@@ -500,7 +500,7 @@ R0 (config-if) # no ip access-group 1 out
 
 <br>
 
-### `CLI commands: DHCP router`
+### a. `CLI commands: DHCP router`
 
 (config t) First of all, configure the concerned interface to be the default route:
 ```
@@ -565,7 +565,7 @@ show ip dhcp pool
 show ip dhcp conflict
 ```
 
-### `CLI commands: DHCP relay agent`
+### b. `CLI commands: DHCP relay agent`
 <p align=center>
 <img src="https://user-images.githubusercontent.com/51119025/58556386-39af5d80-821c-11e9-91c2-3d3628cac425.png" alt="image">
 </p>
@@ -575,4 +575,37 @@ show ip dhcp conflict
 ```
 ip helper-address 172.16.1.100
 ```
+<br>
 
+### 2.5.1 `What is NAT (Network Address Translation)?`
+
+. Back then in 1980, when internet was made, IPv4 counted 4 billion possible addresses. They thought it would be sufficient but sooner they understood they were wrong. In order to fix that and have more time to figure out a new solution, (which is now IPv6), they made private addresses that can be used over and over again in local networks (They’re NOT allowed in public internet). 
+<br>Private addresses:
+-	From 10.0.0.0      to 10.255.255.255
+-	From 127.16.0.0   to 172.31.255.255
+-	From 192.168.0.0 to 192.168.255.255
+<br>. We also distinguish 3 types of NAT addresses:
+-	<b>Inside local  :</b> The host private address inside the network.
+-	<b>Inside global :</b> Assigned by an ISP, it’s the address that allows the customer outside access (internet).
+-	<b>Outside global:</b> websites, services… Any other hosts outside the network.
+ 
+<br>. But in order to use them over and over again, they needed NAT to translate 1 public address to multiple private addresses (as shown in the following photo):
+<br>
+<p align=center>
+	<img src="https://user-images.githubusercontent.com/51119025/58558432-1dfa8600-8221-11e9-809e-f3ebfc843400.png" alt="NAT">
+	<br>(screenshot from : https://www.youtube.com/watch?v=qij5qpHcbBk)
+<p>
+<br>
+
+. Now we're going to see each type of NAT and its configuration.
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+***
+### `Remark`
+. I am just sharing my actual ICND1 summary documentation that I had from youtube videos, official cisco documentation, courses and other sources. Hope it will be helpful for any future certification.
+***
