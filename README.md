@@ -597,8 +597,9 @@ ip helper-address 172.16.1.100
 	<img src="https://user-images.githubusercontent.com/51119025/58573570-53fa3300-823e-11e9-881a-1fbf3666416a.png" alt="NAT">
 </p>
 <br><br>
-. Now we're going to see each type of NAT and its configuration.
+. Now we're going to see each type of NAT and how to configure them.
 <br>
+
 ### a. `PAT: Port Address Translation (overload)`
 
 . The most popular NAT is PAT, <b>a many to one address mapping</b>. It converts a private address + port number to a public address + port number. This is actually what ISP uses to provide us internet connexion to our houses.
