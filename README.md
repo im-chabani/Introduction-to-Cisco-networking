@@ -723,10 +723,17 @@ show ip nat translations
 ```		
 show ip nat statistics
 ```
-(enable) Display detailed dynamic data and events. <b>ALWAYS turn off the debug once you’re done</b>. It consumes a lot of resources.
+(enable) Display detailed dynamic data and events. 
 ```
 debug ip nat
-no debug all (or undebug all)
+```
+<b>ALWAYS turn off the debug once you’re done</b> because it consumes a lot of resources.
+```
+no debug all 
+
+or 
+
+undebug all
 ```
 (enable) In case it isn’t working, verify your addressing and ACL.		
 ```
